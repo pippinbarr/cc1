@@ -1,6 +1,6 @@
-# cc1
+# Creative Computation 1
 
-My cool creative computation projects!
+Where Pippin does bits and pieces of work for Creative Computation 1.
 
-* [Mona Lisa](https://pippinbarr.github.io/cc1/experiments/mona-lisa/)
-* [Murray Lisa](https://pippinbarr.github.io/cc1/experiments/murray-lisa/)
+* [A](a/)
+* [B](b/)
