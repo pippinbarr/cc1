@@ -2,5 +2,14 @@
 
 Where Pippin does bits and pieces of work for Creative Computation 1.
 
-* [A](a/)
-* [B](b/)
+## Weekly live codings
+
+### Section A
+
+* [Mona Lisa](a/experiments/mona-lisa)
+* [Generative Art???](a/experiments/generative-art)
+
+### Section B
+
+* [Mona Lisa](a/experiments/mona-lisa)
+* [Generative Art???](a/experiments/generative-art)
