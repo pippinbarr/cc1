@@ -3,9 +3,9 @@
 /**
 
 * √ Multiple images (happy face/scared face)
-* for-loops (discomfort with, why are they instant?)
+* √ for-loops (discomfort with, why are they instant?)
 * delaying code
-* pushing and popping
+* √ pushing and popping
 
 */
 
@@ -18,18 +18,20 @@ function setup() {
 }
 
 function draw() {
+  background(0);
 
-  let x = 20;
-  let y = height / 2;
-  let size = 40;
-  // Count from 0 up to numCircles
-  for (let i = 0; i < numCircles; i++) {
-    noFill();
-    stroke(255);
-    ellipse(x + i * size / 1.25, y, size);
-  }
+  push();
+  rectMode(CENTER);
+  fill(255, 0, 0);
+  stroke(0, 255, 0);
+  rect(width / 3, height / 2, 100, 100);
+  pop();
 
-  numCircles = constrain(numCircles + 1, 0, 10);
+  push();
+  rectMode(CENTER);
+  rect(2 * width / 3, height / 2, 100, 100);
+  pop();
+
 }
 
 
