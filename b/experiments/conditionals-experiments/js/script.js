@@ -13,6 +13,12 @@ let normalFace = undefined;
 let scaredFace = undefined;
 let lookingFace = undefined;
 
+let face = {
+  x: 250,
+  y: 250,
+  terrorThreshold: 200,
+}
+
 function preload() {
   normalFace = loadImage(`assets/images/normal.png`);
   scaredFace = loadImage(`assets/images/scared.png`);
@@ -28,16 +34,16 @@ function draw() {
 
   imageMode(CENTER);
 
-  translate(width / 2, height / 2);
-  if (mouseX < width / 2) {
-    // Look left
-    scale(-1, 1);
-    image(lookingFace, 0, 0, 300, 300);
+  let d = dist(mouseX, mouseY, face.x, face.y);
+  if (d < face.terrorThreshold) {
+    image(scaredFace, face.x, face.y);
   } else {
-    // Look right
-    scale(1, 1);
-    image(lookingFace, 0, 0, 300, 300);
+    image(normalFace, face.x, face.y);
   }
+
+  // noFill();
+  // stroke(255, 0, 0);
+  // ellipse(face.x, face.y, face.terrorThreshold * 2);
 }
 
 
