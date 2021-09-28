@@ -11,22 +11,27 @@
 
 let normalFace = undefined;
 let scaredFace = undefined;
-let lookingFace = undefined;
+let lookingRightFace = undefined;
+let lookingLeftFace = undefined;
 
 let face = {
   x: 250,
   y: 250,
   terrorThreshold: 200,
+  image: undefined
 }
 
 function preload() {
   normalFace = loadImage(`assets/images/normal.png`);
   scaredFace = loadImage(`assets/images/scared.png`);
-  lookingFace = loadImage(`assets/images/look-right.png`);
+  lookingRightFace = loadImage(`assets/images/look-right.png`);
+  lookingLeftFace = loadImage(`assets/images/look-left.png`);
 }
 
 function setup() {
   createCanvas(500, 500);
+
+  face.image = lookingRightFace;
 }
 
 function draw() {
@@ -34,12 +39,24 @@ function draw() {
 
   imageMode(CENTER);
 
+  // Calculate the distance between the mouse and the face
   let d = dist(mouseX, mouseY, face.x, face.y);
+  // Check if the mouse is TOO CLOSE!!!
   if (d < face.terrorThreshold) {
-    image(scaredFace, face.x, face.y);
+    // Scared face
+    face.image = scaredFace;
   } else {
-    image(normalFace, face.x, face.y);
+    // Not scared face
+    if (mouseX < face.x) {
+      // Mouse is to the left, so look left
+      face.image = lookingLeftFace;
+    } else {
+      // Mouse is to the right, so look right
+      face.image = lookingRightFace;
+    }
   }
+  // Display the chosen image
+  image(face.image, face.x, face.y);
 
   // noFill();
   // stroke(255, 0, 0);
